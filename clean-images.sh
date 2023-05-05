@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_PREFIX="rvm"
+SCRIPT_PREFIX="docker"
 
 image_names=("${SCRIPT_PREFIX}")
 
@@ -16,3 +16,4 @@ done
 
 echo "listing the images"
 lxc image list --format=json | jq -r '.[] | .aliases' | jq -r '.[].name' 
+lxc storage list --format=json | jq -r '.[] | .name'
